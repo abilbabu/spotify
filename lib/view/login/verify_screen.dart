@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/main.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
 import 'package:spotify/view/login/choose_screen.dart';
 import 'package:spotify/view/login/gender.dart';
@@ -13,8 +14,8 @@ class VerifyScreen extends StatefulWidget {
 class _VerifyScreenState extends State<VerifyScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
-  String? _privacy;
-  String? _marketing;
+  String? privacy;
+  String? marketing;
 
   @override
   Widget build(BuildContext context) {
@@ -133,12 +134,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
                             color: ColorConstant.Whitecolor, fontSize: 13),
                       ),
                     ),
-                    Radio<String>(
+                    Radio(
                       value: "true",
-                      groupValue: _privacy,
+                      groupValue: privacy,
                       onChanged: (value) {
                         setState(() {
-                          _privacy = value;
+                          privacy = value;
                         });
                       },
                     ),
@@ -155,12 +156,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
                             color: ColorConstant.Whitecolor, fontSize: 13),
                       ),
                     ),
-                    Radio<String>(
+                    Radio(
                       value: "true",
-                      groupValue: _marketing,
+                      groupValue: marketing,
                       onChanged: (value) {
                         setState(() {
-                          _marketing = value;
+                          marketing = value;
                         });
                       },
                     ),
@@ -177,6 +178,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState?.validate() ?? false) {
+                        SavedName = nameController.text;
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(

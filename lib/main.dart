@@ -3,7 +3,7 @@ import 'package:spotify/view/login/login_screen.dart';
 
 String? SavedEmail;
 String? SavedPassword;
-String? name;
+String? SavedName;
 void main() {
   runApp(MyApp());
 }

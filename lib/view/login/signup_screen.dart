@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/main.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
-import 'package:spotify/view/home/profile.dart';
+import 'package:spotify/view/home/home_screen.dart';
+
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -32,7 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
               Container(
                 margin: const EdgeInsets.only(top: 40),
                 child: Text(
-                  "Sign in free",
+                  "Sign in",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -156,7 +157,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProfileScreen(),
+                          builder: (context) => HomeScreen(),
                         ));
                   }
                 },
