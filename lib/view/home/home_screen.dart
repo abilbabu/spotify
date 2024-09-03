@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstant.Blackcolor,
       appBar: AppBar(
-        title: Text("data"),
+        title: Text("good morning"),
       ),
     );
   }
