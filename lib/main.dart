@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify/view/login/login_screen.dart';
+import 'package:spotify/view/splash_screen/splash_screen.dart';
 
 String? SavedEmail;
 String? SavedPassword;
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

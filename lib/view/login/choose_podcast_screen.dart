@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
-import 'package:spotify/view/login/login_screen.dart';
-
+import 'package:spotify/view/bottamnavbar_screen/bottam_navbar_screen.dart';
 
 class ChoosePodcastScreen extends StatefulWidget {
   const ChoosePodcastScreen({super.key});
@@ -43,7 +42,7 @@ class _ChoosePodcastScreenState extends State<ChoosePodcastScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
+                  builder: (context) => BottomnavbarScreen(),
                 ),
               );
             },

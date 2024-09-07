@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignupScreen(),
+                      builder: (context) => EmailScreen(),
                     ),
                     (route) => false);
               },
@@ -199,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => EmailScreen(),
+                    builder: (context) => SignupScreen(),
                   ));
             },
             child: Text(

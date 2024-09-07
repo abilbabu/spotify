@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spotify/main.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
-import 'package:spotify/view/home/home_screen.dart';
-
+import 'package:spotify/view/bottamnavbar_screen/bottam_navbar_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -157,7 +155,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => BottomnavbarScreen(),
                         ));
                   }
                 },
