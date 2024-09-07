@@ -12,28 +12,46 @@ class BottomnavbarScreen extends StatefulWidget {
 }
 
 class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
-  int selectedTab = 0;
-  List screen = [HomeScreen(), SearchScreen(), LibraryScreen()];
+  int _selectedTab = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screen[selectedTab],
+      body: IndexedStack(
+        index: _selectedTab,
+        children: <Widget>[
+          HomeScreen(),
+          SearchScreen(),
+          LibraryScreen(),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: ColorConstant.Blackcolor,
-          currentIndex: selectedTab,
-          onTap: (value) {
-            selectedTab = value;
-            setState(() {});
-          },
-          selectedItemColor: ColorConstant.Whitecolor,
-          unselectedItemColor: ColorConstant.Greycolor,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: "hOME"),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.library_add_outlined), label: "Library"),
-          ]),
+        backgroundColor: ColorConstant.Blackcolor,
+        currentIndex: _selectedTab,
+        onTap: _onItemTapped,
+        selectedItemColor: ColorConstant.Whitecolor,
+        unselectedItemColor: ColorConstant.Greycolor,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_add_outlined),
+            label: "Library",
+          ),
+        ],
+      ),
     );
   }
 }

@@ -10,6 +10,12 @@ import 'package:spotify/view/home/Widget/mixsong.dart';
 import 'package:spotify/view/home/Widget/radio.dart';
 import 'package:spotify/view/home/Widget/recommended.dart';
 import 'package:spotify/view/home/Widget/your_playlists.dart';
+import 'package:spotify/view/home/audioScreen/Djscreen.dart';
+import 'package:spotify/view/home/audioScreen/aloneScreen.dart';
+import 'package:spotify/view/home/audioScreen/feelscreen.dart';
+import 'package:spotify/view/home/audioScreen/heartbeatScreen.dart';
+import 'package:spotify/view/home/audioScreen/likedScreen.dart';
+import 'package:spotify/view/home/audioScreen/rapScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _titleSection(),
-              _PlayedList(),
+              _PlayedList(context),
               _yourplaylists(),
               _jumpPlaylist(),
               _recommendedList(),
@@ -325,143 +331,214 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _PlayedList() {
-    return SizedBox(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 12, left: 13, right: 13),
-        child: SizedBox(
-          height: 260,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
+ Widget _PlayedList(BuildContext context) {
+  return SizedBox(
+    child: Padding(
+      padding: const EdgeInsets.only(top: 12, left: 13, right: 13),
+      child: SizedBox(
+        height: 260,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Likedscreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/LIKE.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Liked songs",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Rapscreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/LIKE.jpg"))),
+                      image: DecorationImage(
+                        image: AssetImage("asset/image/rra.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Rap vibe🫵",
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Text(
-                    "Liked songs",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Spacer(),
-                  Container(
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Djscreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/rra.jpeg"))),
+                      image: DecorationImage(
+                        image: AssetImage("asset/image/HIT.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "DJ party hits",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Text(
-                    "Rap vibe🫵",
-                    style: TextStyle(
-                        fontSize: 13,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Container(
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Alonescreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/HIT.jpeg"))),
+                      image: DecorationImage(
+                        image: AssetImage("asset/image/ffone.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Alone beats",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Text(
-                    "DJ party hits",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Spacer(),
-                  Container(
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Heartbeatscreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/ffone.jpeg"))),
+                      image: DecorationImage(
+                        image: AssetImage("asset/image/heartbeet.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Heart break💔",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Text(
-                    "Alone beats",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Container(
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Feelscreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
                     height: 70,
                     width: 70,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/heartbeet.jpeg"))),
+                      image: DecorationImage(
+                        image: AssetImage("asset/image/ffthre.jpeg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  "Feels round",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Text(
-                    "Heart break💔",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  Spacer(),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("asset/image/ffthre.jpeg"))),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Feels round",
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConstant.Whitecolor,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Widget _titleSection() {
     return Padding(
