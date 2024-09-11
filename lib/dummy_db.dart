@@ -266,30 +266,30 @@ class DummyDb {
       "radionm": "Another love",
     },
   ];
- static List search=[
-  {
-    "image":"asset/image/cat.jpeg",
-    "name":"song",
-  },
-  {
-    "image":"asset/image/OI.jpeg",
-    "name":"Top 50-song",
-  },
-  {
-    "image":"asset/image/feel.jpeg",
-    "name":"Feeling good malayalam",
-  },
-  {
-    "image":"asset/image/lofi.jpeg",
-    "name":"Malayalam lofi",
-  },
-  {
-    "image":"asset/image/sadhindi.jpeg",
-    "name":"Sad hindi melodies ",
-  },
-  {
-    "image":"asset/image/love.jpeg",
-    "name":"Timeless love song",
-  },
- ];
+  static List search = [
+    {
+      "image": "asset/image/cat.jpeg",
+      "name": "song",
+    },
+    {
+      "image": "asset/image/OI.jpeg",
+      "name": "Top 50-song",
+    },
+    {
+      "image": "asset/image/feel.jpeg",
+      "name": "Feeling good malayalam",
+    },
+    {
+      "image": "asset/image/lofi.jpeg",
+      "name": "Malayalam lofi",
+    },
+    {
+      "image": "asset/image/sadhindi.jpeg",
+      "name": "Sad hindi melodies ",
+    },
+    {
+      "image": "asset/image/love.jpeg",
+      "name": "Timeless love song",
+    },
+  ];
 }

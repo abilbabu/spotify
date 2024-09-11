@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
+import 'package:spotify/view/home/audioScreen/youeplayone.dart';
 
 class yourplaylists extends StatelessWidget {
   final String image;
@@ -22,13 +23,25 @@ class yourplaylists extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 130,
-                    width: 130,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                          image: AssetImage(image), fit: BoxFit.cover),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Youeplayone(
+                              image:image,
+                              title:title,
+                            ),
+                          ));
+                    },
+                    child: Container(
+                      height: 130,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                            image: AssetImage(image), fit: BoxFit.cover),
+                      ),
                     ),
                   ),
                   SizedBox(

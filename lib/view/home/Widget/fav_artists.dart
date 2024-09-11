@@ -43,7 +43,7 @@ class fav_artists extends StatelessWidget {
                           color: ColorConstant.Whitecolor),
                     ),
                   ],
-                )
+                ),
               ],
             )
           ],

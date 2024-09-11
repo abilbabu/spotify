@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:spotify/dummy_db.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
 
-
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
@@ -29,8 +28,8 @@ class SearchPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _searchSection(context),
-              const SizedBox(height: 13),
-              const Text(
+              SizedBox(height: 13),
+              Text(
                 'Recent searches',
                 style: TextStyle(
                   color: Colors.white,
