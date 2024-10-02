@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: ColorConstant.Blackcolor,
       body: Center(
         child: Image(
-            height: 450, image: AssetImage("asset/image/spotifylogoset.png")),
+            height: 350, image: AssetImage("asset/image/spotifylogoset.png")),
       ),
     );
   }

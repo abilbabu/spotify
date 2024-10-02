@@ -1,8 +1,41 @@
 class DummyDb {
+  static List items = [
+    {"circleImage": "asset/image/ar.jpeg", "name": "A. R. Rahman"},
+    {"circleImage": "asset/image/arijit.jpeg", "name": "Arijit Singh"},
+    {"circleImage": "asset/image/billie.jpeg", "name": "Billie Eilish"},
+    {"circleImage": "asset/image/walker.jpeg", "name": "Alan Walker"},
+    {"circleImage": "asset/image/taylor.jpeg", "name": "Taylor Swift"},
+    {"circleImage": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
+    {"circleImage": "asset/image/noah.jpg", "name": "Noah Georgeson"},
+    {"circleImage": "asset/image/kj.webp", "name": "K. J. Yesudas"},
+    {"circleImage": "asset/image/ep.jpeg", "name": "A.R"},
+    {"circleImage": "asset/image/chan.jpeg", "name": "Jaycee Chan"},
+    {"circleImage": "asset/image/hyunjin.jpeg", "name": "Hyunjin"},
+    {"circleImage": "asset/image/blinding.jpeg", "name": "Blinding Lights"},
+    {"circleImage": "asset/image/eminem.jpeg", "name": "Eminem"},
+    {"circleImage": "asset/image/bad.jpeg", "name": "Bad Bunny"},
+    {"circleImage": "asset/image/bad.jpeg", "name": "Bad Bunny"},
+  ];
+  static List chooseitems = [
+    {"image": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
+    {"image": "asset/image/kj.webp", "name": "K. J. Yesudas Hit"},
+    {"image": "asset/image/arijit.jpeg", "name": "Arijit Singh Top Hit"},
+    {"image": "asset/image/prone.jpg", "name": "Top Podcasts"},
+    {"image": "asset/image/rap.jpeg", "name": "The RapCaviar Podcast"},
+    {"image": "asset/image/Slow.jpeg", "name": "Slow Burn"},
+    {"image": "asset/image/maahaa.jpeg", "name": "The MaaHaa Podcast"},
+    {"image": "asset/image/giving.jpeg", "name": "Giving Voice to Depression"},
+    {"image": "asset/image/prone.jpg", "name": "Top Podcasts"},
+    {"image": "asset/image/Slow.jpeg", "name": "Slow Burn"},
+    {"image": "asset/image/rap.jpeg", "name": "The RapCaviar Podcast"},
+    {"image": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
+    {"image": "asset/image/giving.jpeg", "name": "Giving Voice to Depression"},
+    {"image": "asset/image/arijit.jpeg", "name": "Arijit Singh Top Hit"},
+  ];
   static List yourplaylists = [
     {
       "image": "asset/image/dq.jpeg",
-      "title": "D Q",
+      "title": "All Time Hits",
     },
     {
       "image": "asset/image/HIT.jpeg",
@@ -291,5 +324,82 @@ class DummyDb {
       "image": "asset/image/love.jpeg",
       "name": "Timeless love song",
     },
+  ];
+  static List Music = [
+  {
+    'name': 'Love Me Do - Mono',
+    'artist': 'The Beatles',
+    'image': 'asset/image/cat.jpeg'
+  },
+  {
+    'name': 'Yesterday',
+    'artist': 'The Beatles',
+    'image': 'asset/image/prone.jpg'
+  },
+  {
+    'name': 'Bohemian Rhapsody',
+    'artist': 'Queen',
+    'image': 'asset/image/rap.jpeg'
+  },
+  {
+    'name': 'Billie Jean',
+    'artist': 'Michael Jackson',
+    'image': 'asset/image/lofione.jpeg'
+  },
+  {
+    'name': 'Shape of You',
+    'artist': 'Ed Sheeran',
+    'image': 'asset/image/lovetwo.jpeg'
+  },
+  {
+    'name': 'Rolling in the Deep',
+    'artist': 'Adele',
+    'image': 'asset/image/Slow.jpeg'
+  },
+  {
+    'name': 'Blinding Lights',
+    'artist': 'The Weeknd',
+    'image': 'asset/image/rap.jpeg'
+  },
+  {
+    'name': 'Uptown Funk',
+    'artist': 'Mark Ronson ft. Bruno Mars',
+    'image': 'asset/image/night.jpeg'
+  }
+];
+static List Settings=[
+  {
+    'name':'Account'
+  },
+  {
+    'name':'Data Saver'
+  },
+   {
+    'name':'Languages'
+  },
+  {
+    'name':'Playback'
+  },
+  {
+    'name':'Explicit Content'
+  },
+  {
+    'name':'Devices'
+  },
+  {
+    'name':'Car'
+  },
+  {
+    'name':'Social'
+  },
+  {
+    'name':'Voice Assistant & Apps'
+  },
+  {
+    'name':'Audio Quality'
+  },
+  {
+    'name':'Storage'
+  },
   ];
 }

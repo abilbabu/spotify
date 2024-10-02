@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/dummy_db.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
 import 'package:spotify/view/login/choose_podcast_screen.dart';
 import 'package:spotify/view/login/verify_screen.dart';
@@ -7,28 +8,11 @@ class ChooseScreen extends StatefulWidget {
   const ChooseScreen({super.key});
 
   @override
-  State<ChooseScreen> createState() => _ChooseScreenState();
+  _ChooseScreenState createState() => _ChooseScreenState();
 }
 
 class _ChooseScreenState extends State<ChooseScreen> {
-  List<Map<String, String>> items = [
-    {"circleImage": "asset/image/ar.jpeg", "name": "A. R. Rahman"},
-    {"circleImage": "asset/image/arijit.jpeg", "name": "Arijit Singh"},
-    {"circleImage": "asset/image/billie.jpeg", "name": "Billie Eilish"},
-    {"circleImage": "asset/image/walker.jpeg", "name": "Alan Walker"},
-    {"circleImage": "asset/image/taylor.jpeg", "name": "Taylor Swift"},
-    {"circleImage": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
-    {"circleImage": "asset/image/noah.jpg", "name": "Noah Georgeson"},
-    {"circleImage": "asset/image/kj.webp", "name": "K. J. Yesudas"},
-    {"circleImage": "asset/image/ep.jpeg", "name": "A.R"},
-    {"circleImage": "asset/image/chan.jpeg", "name": "Jaycee Chan"},
-    {"circleImage": "asset/image/hyunjin.jpeg", "name": "Hyunjin"},
-    {"circleImage": "asset/image/blinding.jpeg", "name": "Blinding Lights"},
-    {"circleImage": "asset/image/eminem.jpeg", "name": "Eminem"},
-    {"circleImage": "asset/image/bad.jpeg", "name": "Bad Bunny"},
-  ];
-
-  Set<int> selectedIndices = Set<int>();
+  List<int> selectedIndices = [];
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +45,7 @@ class _ChooseScreenState extends State<ChooseScreen> {
       floatingActionButton: FloatingActionButton(
         elevation: 10,
         backgroundColor: Colors.transparent,
-        onPressed: selectedIndices.length == 3
+        onPressed: selectedIndices.length >= 3
             ? () {
                 Navigator.push(
                   context,
@@ -110,11 +94,11 @@ class _ChooseScreenState extends State<ChooseScreen> {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
                   childAspectRatio: 0.7,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
                 ),
-                itemCount: items.length,
+                itemCount: DummyDb.items.length,
                 itemBuilder: (context, index) {
                   final isSelected = selectedIndices.contains(index);
                   return GestureDetector(
@@ -127,28 +111,34 @@ class _ChooseScreenState extends State<ChooseScreen> {
                         }
                       });
                     },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 40,
-                          backgroundColor:
-                              isSelected ? Colors.transparent : Colors.grey,
-                          child: isSelected
-                              ? Icon(Icons.check, color: Colors.blue)
-                              : null,
-                          backgroundImage:
-                              AssetImage(items[index]['circleImage']!),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          items[index]['name']!,
-                          style: TextStyle(
-                              color: ColorConstant.Whitecolor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ],
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: isSelected
+                            ? Colors.blue.withOpacity(0.2)
+                            : Colors.transparent,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundImage: AssetImage(
+                                DummyDb.items[index]['circleImage']!),
+                            child: isSelected
+                                ? Icon(Icons.check, color: Colors.blue)
+                                : null,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            DummyDb.items[index]['name']!,
+                            style: TextStyle(
+                                color: ColorConstant.Whitecolor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

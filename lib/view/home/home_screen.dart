@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/dummy_db.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
+import 'package:spotify/view/home/RecentedScreen/RecentedScreen.dart';
+import 'package:spotify/view/home/SettingScreen/settingscreen.dart';
 import 'package:spotify/view/home/Widget/artists.dart';
 import 'package:spotify/view/home/Widget/fav_artists.dart';
 import 'package:spotify/view/home/Widget/jump_back.dart';
@@ -15,7 +17,9 @@ import 'package:spotify/view/home/audioScreen/aloneScreen.dart';
 import 'package:spotify/view/home/audioScreen/feelscreen.dart';
 import 'package:spotify/view/home/audioScreen/heartbeatScreen.dart';
 import 'package:spotify/view/home/audioScreen/likedScreen.dart';
+
 import 'package:spotify/view/home/audioScreen/rapScreen.dart';
+import 'package:spotify/view/home/notificationScreen/notificationscreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _titleSection(),
+              _titleSection(context),
               _PlayedList(context),
               _yourplaylists(),
               _jumpPlaylist(),
@@ -331,18 +335,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
- Widget _PlayedList(BuildContext context) {
-  return SizedBox(
-    child: Padding(
-      padding: const EdgeInsets.only(top: 12, left: 13, right: 13),
-      child: SizedBox(
-        height: 260,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: InkWell(
+  Widget _PlayedList(BuildContext context) {
+    return SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12, left: 13, right: 13),
+        child: SizedBox(
+          height: 260,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -362,185 +365,183 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "Liked songs",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "Liked songs",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Rapscreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("asset/image/rra.jpeg"),
-                        fit: BoxFit.cover,
+                  Spacer(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Rapscreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/rra.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "Rap vibe🫵",
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "Rap vibe🫵",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Djscreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("asset/image/HIT.jpeg"),
-                        fit: BoxFit.cover,
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Djscreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/HIT.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "DJ party hits",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "DJ party hits",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Alonescreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("asset/image/ffone.jpeg"),
-                        fit: BoxFit.cover,
+                  Spacer(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Alonescreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/ffone.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "Alone beats",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "Alone beats",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Heartbeatscreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("asset/image/heartbeet.jpeg"),
-                        fit: BoxFit.cover,
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Heartbeatscreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/heartbeet.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "Heart break💔",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "Heart break💔",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Feelscreen(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("asset/image/ffthre.jpeg"),
-                        fit: BoxFit.cover,
+                  Spacer(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Feelscreen(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("asset/image/ffthre.jpeg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "Feels round",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: ColorConstant.Whitecolor,
-                    fontWeight: FontWeight.w500,
+                  SizedBox(width: 10),
+                  Text(
+                    "Feels round",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: ColorConstant.Whitecolor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-
-  Widget _titleSection() {
+  Widget _titleSection(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
         top: 50,
@@ -557,29 +558,45 @@ class HomeScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700),
           ),
           Spacer(),
-          Icon(
-            Icons.notifications_none,
-            size: 25,
-            color: ColorConstant.Whitecolor,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Icon(
-            Icons.update_outlined,
-            size: 25,
-            color: ColorConstant.Whitecolor,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Icon(
-            Icons.settings_outlined,
-            size: 25,
-            color: ColorConstant.Whitecolor,
-          ),
-          SizedBox(
-            width: 10,
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => notificationScreen(),
+                    ));
+              },
+              icon: Icon(
+                Icons.notifications_none,
+                size: 25,
+                color: ColorConstant.Whitecolor,
+              )),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Recentedscreen(),
+                    ));
+              },
+              icon: Icon(
+                Icons.update_outlined,
+                size: 25,
+                color: ColorConstant.Whitecolor,
+              )),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Settingscreen(),
+                  ));
+            },
+            icon: Icon(
+              Icons.settings_outlined,
+              size: 25,
+              color: ColorConstant.Whitecolor,
+            ),
           )
         ],
       ),

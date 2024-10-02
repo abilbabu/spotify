@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/dummy_db.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
 import 'package:spotify/view/bottamnavbar_screen/bottam_navbar_screen.dart';
+
 
 class ChoosePodcastScreen extends StatefulWidget {
   const ChoosePodcastScreen({super.key});
@@ -10,22 +12,8 @@ class ChoosePodcastScreen extends StatefulWidget {
 }
 
 class _ChoosePodcastScreenState extends State<ChoosePodcastScreen> {
-  List<Map<String, String>> items = [
-    {"image": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
-    {"image": "asset/image/kj.webp", "name": "K. J. Yesudas Hit"},
-    {"image": "asset/image/arijit.jpeg", "name": "Arijit Singh Top Hit"},
-    {"image": "asset/image/prone.jpg", "name": "Top Podcasts"},
-    {"image": "asset/image/rap.jpeg", "name": "The RapCaviar Podcast"},
-    {"image": "asset/image/Slow.jpeg", "name": "Slow Burn"},
-    {"image": "asset/image/maahaa.jpeg", "name": "The MaaHaa Podcast"},
-    {"image": "asset/image/giving.jpeg", "name": "Giving Voice to Depression"},
-    {"image": "asset/image/prone.jpg", "name": "Top Podcasts"},
-    {"image": "asset/image/Slow.jpeg", "name": "Slow Burn"},
-    {"image": "asset/image/rap.jpeg", "name": "The RapCaviar Podcast"},
-    {"image": "asset/image/BTS-Spotify.jpg", "name": "BTS"},
-    {"image": "asset/image/giving.jpeg", "name": "Giving Voice to Depression"},
-    {"image": "asset/image/arijit.jpeg", "name": "Arijit Singh Top Hit"},
-  ];
+
+  List<int> selectedPodcastIndices = [];
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +41,8 @@ class _ChoosePodcastScreenState extends State<ChoosePodcastScreen> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25)),
           ),
         ),
         body: Padding(
@@ -103,36 +91,47 @@ class _ChoosePodcastScreenState extends State<ChoosePodcastScreen> {
                     mainAxisSpacing: 15,
                     crossAxisSpacing: 15,
                   ),
-                  itemCount: items.length,
+                  itemCount: DummyDb.chooseitems.length, 
                   itemBuilder: (context, index) {
-                    final item = items[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(item['image']!),
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            color: Colors.black54,
-                            width: double.infinity,
-                            padding: EdgeInsets.all(8),
-                            child: Text(
-                              item['name']!,
-                              style: TextStyle(
-                                color: ColorConstant.Whitecolor,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
+                    final item = DummyDb.chooseitems[index];
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (selectedPodcastIndices.contains(index)) {
+                            selectedPodcastIndices.remove(index);
+                          } else {
+                            selectedPodcastIndices.add(index);
+                          }
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(item['image']!),
                           ),
-                        ],
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              color: Colors.black54,
+                              width: double.infinity,
+                              padding: EdgeInsets.all(8),
+                              child: Text(
+                                item['name']!,
+                                style: TextStyle(
+                                  color: ColorConstant.Whitecolor,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

@@ -16,213 +16,215 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstant.Blackcolor,
-      body: Column(
+      body: Stack(
         children: [
           _buildStartScreenBgimg(),
-          // background image set
           _buildElevatedbutton(),
-          //elavated buttons,navigtor,css
         ],
       ),
     );
   }
 
   Widget _buildElevatedbutton() {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 40,
-          ),
-          Container(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor:
-                    WidgetStatePropertyAll(ColorConstant.Greencolor),
-                foregroundColor: WidgetStatePropertyAll(Colors.black),
-                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20))),
-              ),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EmailScreen(),
-                    ),
-                    (route) => false);
-              },
-              child: Text("Sign Up Free",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 250,
+              height: 200,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("asset/image/spotify.png"),
+                      fit: BoxFit.cover)),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            child: TextButton(
-              style: ButtonStyle(
-                  elevation: WidgetStatePropertyAll(25),
-                  foregroundColor:
-                      WidgetStatePropertyAll(ColorConstant.Whitecolor),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: ColorConstant.Whitecolor),
-                    ),
-                  )),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ),
-                    (route) => false);
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Image.asset(
-                    ImageConstants.Google_lOGO,
-                    width: 20,
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  Text(
-                    "Continue With Google",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            child: TextButton(
-              style: ButtonStyle(
-                  elevation: WidgetStatePropertyAll(25),
-                  foregroundColor:
-                      WidgetStatePropertyAll(ColorConstant.Whitecolor),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: ColorConstant.Whitecolor),
-                    ),
-                  )),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ),
-                    (route) => false);
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Image.asset(
-                    ImageConstants.Facebook_lOGO,
-                    width: 20,
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  Text(
-                    "Continue With Facebook",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            child: TextButton(
-              style: ButtonStyle(
-                  elevation: WidgetStatePropertyAll(25),
-                  foregroundColor:
-                      WidgetStatePropertyAll(ColorConstant.Whitecolor),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: ColorConstant.Whitecolor),
-                    ),
-                  )),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ),
-                    (route) => false);
-              },
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Image.asset(
-                    ImageConstants.Apple_lOGO,
-                    width: 20,
-                    height: 20,
-                  ),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  Text(
-                    "Continue With Apple",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          TextButton(
-            style: TextButton.styleFrom(),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SignupScreen(),
-                  ));
-            },
-            child: Text(
-              "Log in",
+            Text(
+              'Millions of Songs.\nFree on Spotify.',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                  color: ColorConstant.Whitecolor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
+                color: ColorConstant.Whitecolor,
+                fontSize: 28,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 40),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      WidgetStateProperty.all(ColorConstant.Greencolor),
+                  foregroundColor: WidgetStateProperty.all(Colors.black),
+                  shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20))),
+                ),
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EmailScreen(),
+                      ),
+                      (route) => false);
+                },
+                child: Text("Sign Up Free",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              child: TextButton(
+                style: ButtonStyle(
+                    elevation: WidgetStateProperty.all(25),
+                    foregroundColor:
+                        WidgetStateProperty.all(ColorConstant.Whitecolor),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: ColorConstant.Whitecolor),
+                      ),
+                    )),
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                      (route) => false);
+                },
+                child: Row(
+                  children: [
+                    SizedBox(width: 40),
+                    Image.asset(
+                      ImageConstants.Google_lOGO,
+                      width: 20,
+                      height: 20,
+                    ),
+                    SizedBox(width: 60),
+                    Text(
+                      "Continue With Google",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              child: TextButton(
+                style: ButtonStyle(
+                    elevation: WidgetStateProperty.all(25),
+                    foregroundColor:
+                        WidgetStateProperty.all(ColorConstant.Whitecolor),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: ColorConstant.Whitecolor),
+                      ),
+                    )),
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                      (route) => false);
+                },
+                child: Row(
+                  children: [
+                    SizedBox(width: 40),
+                    Image.asset(
+                      ImageConstants.Facebook_lOGO,
+                      width: 20,
+                      height: 20,
+                    ),
+                    SizedBox(width: 60),
+                    Text(
+                      "Continue With Facebook",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              child: TextButton(
+                style: ButtonStyle(
+                    elevation: WidgetStateProperty.all(25),
+                    foregroundColor:
+                        WidgetStateProperty.all(ColorConstant.Whitecolor),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: ColorConstant.Whitecolor),
+                      ),
+                    )),
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                      (route) => false);
+                },
+                child: Row(
+                  children: [
+                    SizedBox(width: 40),
+                    Image.asset(
+                      ImageConstants.Apple_lOGO,
+                      width: 20,
+                      height: 20,
+                    ),
+                    SizedBox(width: 60),
+                    Text(
+                      "Continue With Apple",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignupScreen(),
+                    ));
+              },
+              child: Text(
+                "Log in",
+                style: TextStyle(
+                    color: ColorConstant.Whitecolor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildStartScreenBgimg() {
-    return Container(
-      height: 450,
-      width: double.infinity,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(ImageConstants.START_SCREEN_BG))),
+    return Positioned.fill(
+      child: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(ImageConstants.START_SCREEN_BG))),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
 import 'package:spotify/view/home/home_screen.dart';
 import 'package:spotify/view/library_screen/library_screen.dart';
@@ -47,7 +48,10 @@ class _BottomnavbarScreenState extends State<BottomnavbarScreen> {
             label: "Search",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_add_outlined),
+            // icon: Icon(Icons.library_add_outlined),
+            icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedLibraries,
+                color: ColorConstant.Greycolor),
             label: "Library",
           ),
         ],
