@@ -100,7 +100,7 @@ class _CategoryeightState extends State<Categoryeight> {
                                         name:
                                             musicItem['name'], 
                                         artist: musicItem[
-                                            'artist'],
+                                            'artist'], 
                                       ),
                                     ),
                                   );
@@ -219,7 +219,7 @@ class _CategoryeightState extends State<Categoryeight> {
         Spacer(),
         CircleAvatar(
           radius: 30,
-          backgroundColor: ColorConstant.Greencolor,
+          backgroundColor: ColorConstant.lightGrey,
           child: IconButton(
             onPressed: () {
               setState(() {

@@ -58,66 +58,68 @@ class _CategorysevenState extends State<Categoryseven> {
               end: Alignment.bottomLeft,
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              children: [
-                _buildimagesection(),
-                SizedBox(
-                  height: 40,
-                ),
-                _buildtitlesection(),
-                SizedBox(
-                  height: 12,
-                ),
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          if (_isPlay) {
-                            _stopAudio();
-                          } else {
-                            _playAudio();
-                          }
-                          _isPlay = !_isPlay;
-                        });
-                      },
-                      child: SizedBox(
-                        height: 1500,
-                        child: ListView.separated(
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (context, index) {
-                            final musicItem = DummyDb.Music[index];
-                            return InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Customaudioscreen(
-                                      image: musicItem['image'],
-                                      name: musicItem['name'],
-                                      artist: musicItem['artist'],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  _buildimagesection(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  _buildtitlesection(),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (_isPlay) {
+                              _stopAudio();
+                            } else {
+                              _playAudio();
+                            }
+                            _isPlay = !_isPlay;
+                          });
+                        },
+                        child: SizedBox(
+                          height: 1500,
+                          child: ListView.separated(
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (context, index) {
+                              final musicItem = DummyDb.Music[index];
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Customaudioscreen(
+                                        image: musicItem['image'],
+                                        name: musicItem['name'],
+                                        artist: musicItem['artist'],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                              child: custommusiclist(
-                                name: musicItem['name'],
-                                artist: musicItem['artist'],
-                                image: musicItem['image'],
-                              ),
-                            );
-                          },
-                          separatorBuilder: (context, index) =>
-                              SizedBox(width: 16),
-                          itemCount: DummyDb.Music.length,
+                                  );
+                                },
+                                child: custommusiclist(
+                                  name: musicItem['name'],
+                                  artist: musicItem['artist'],
+                                  image: musicItem['image'],
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) =>
+                                SizedBox(width: 16),
+                            itemCount: DummyDb.Music.length,
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                )
-              ],
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ));
@@ -215,7 +217,7 @@ class _CategorysevenState extends State<Categoryseven> {
         Spacer(),
         CircleAvatar(
           radius: 30,
-          backgroundColor: ColorConstant.Greencolor,
+          backgroundColor: ColorConstant.lightGrey,
           child: IconButton(
             onPressed: () {
               setState(() {

@@ -217,7 +217,7 @@ class _DjscreenState extends State<Djscreen> {
         Spacer(),
         CircleAvatar(
           radius: 30,
-          backgroundColor: ColorConstant.Greencolor,
+          backgroundColor: ColorConstant.lightGrey,
           child: IconButton(
             onPressed: () {
               setState(() {

@@ -221,7 +221,7 @@ class _AlonescreenState extends State<Alonescreen> {
         Spacer(),
         CircleAvatar(
           radius: 30,
-          backgroundColor: ColorConstant.Greencolor,
+          backgroundColor: ColorConstant.lightGrey,
           child: IconButton(
             onPressed: () {
               setState(() {

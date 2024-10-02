@@ -41,13 +41,19 @@ class _CustomaudioscreenState extends State<Customaudioscreen> {
     });
 
     _player.onPlayerStateChanged.listen((state) {
-      setState(() {});
+      setState(() {
+        _isPlaying = state == PlayerState.playing;
+      });
     });
   }
 
   Future<void> _playAudio() async {
-    await _player.play(UrlSource(
-        'https://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg'));
+    try {
+      await _player.play(UrlSource(
+          'https://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg'));
+    } catch (e) {
+      print("Error playing audio: $e");
+    }
   }
 
   Future<void> _stopAudio() async {
@@ -148,11 +154,13 @@ class _CustomaudioscreenState extends State<Customaudioscreen> {
                     children: [
                       Text(
                         '${_position.inMinutes}:${(_position.inSeconds % 60).toString().padLeft(2, '0')}',
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14, color: ColorConstant.lightGrey),
                       ),
                       Text(
                         '${_duration.inMinutes - _position.inMinutes}:${((_duration.inSeconds - _position.inSeconds) % 60).toString().padLeft(2, '0')}',
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14, color: ColorConstant.lightGrey),
                       ),
                     ],
                   ),
@@ -162,28 +170,26 @@ class _CustomaudioscreenState extends State<Customaudioscreen> {
                   children: [
                     IconButton(
                       iconSize: 40,
-                      icon: Icon(Icons.skip_previous,color: ColorConstant.lightGrey,),
+                      icon: Icon(Icons.skip_previous,
+                          color: ColorConstant.lightGrey),
                       onPressed: () {},
                     ),
-                    SizedBox(width: 20,),
-                    Container(
-                      width: 70,
-                      height: 70,
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: IconButton(
-                          iconSize: 36,
-                          icon:
-                              Icon(_isPlaying ? Icons.pause : Icons.play_arrow,color: ColorConstant.Greencolor,),
-                          onPressed: _togglePlayPause,
-                        ),
+                    SizedBox(width: 20),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: ColorConstant.lightGrey,
+                      child: IconButton(
+                        onPressed: _togglePlayPause,
+                        icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow,
+                            size: 45, color: ColorConstant.Blackcolor),
                       ),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(width: 20),
                     IconButton(
                       iconSize: 40,
-                      icon: Icon(Icons.skip_next,color: ColorConstant.lightGrey,),
-                      onPressed: () {}, 
+                      icon:
+                          Icon(Icons.skip_next, color: ColorConstant.lightGrey),
+                      onPressed: () {},
                     ),
                   ],
                 ),
