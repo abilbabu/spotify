@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/utils/constants/color_constant.dart';
+import 'package:spotify/utils/constants/image_constants.dart';
 import 'package:spotify/view/login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -29,9 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: ColorConstant.Blackcolor,
       body: Center(
-        child: Image(
-            height: 350, image: AssetImage("asset/image/spotifylogoset.png")),
-      ),
+          child: Image.asset(
+        ImageConstants.Logo,
+        height: 350,
+      )),
     );
   }
 }
